@@ -1,0 +1,18 @@
+.padding-less{
+              padding: 0px;
+}
+
+.spacing {
+  height: 40px;
+}
+
+.carousel-control-prev,
+.carousel-control-next{
+    background: transparent;
+    border: none;
+}
+
+.jumbotron{
+  text-align: left;
+}
+

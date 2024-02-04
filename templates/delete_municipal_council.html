@@ -1,0 +1,27 @@
+{%extends "base.html" %}
+{% block title %} Complaint {%endblock%}
+{% block content %}
+{% for _ in [0]: %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-danger">{{message}}</div>
+      {% endfor %}
+  {% endif %}
+  {% endwith %}
+{% endfor %}
+{% for municipal_council in all_municipal_councils %}
+<div class="list-group mx-5 my-5 ">
+  <button type="button" class="list-group-item list-group-item-action active">
+    {{municipal_council.place}}
+  </button>
+  <button type="button" class="list-group-item list-group-item-action"> {{municipal_council.email}}</button>
+  <button type="button" class="list-group-item list-group-item-action"> {{municipal_council.latitude}}</button>
+  <button type="button" class="list-group-item list-group-item-action"> {{municipal_council.longitude}}</button>
+</div>
+{% endfor %}
+<div class="mx-5">
+  {% import "bootstrap/wtf.html" as wtf %}
+  {{ wtf.quick_form(form) }}
+</div>
+{% endblock %}
